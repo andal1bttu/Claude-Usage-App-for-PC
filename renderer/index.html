@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Claude Usage</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body data-mode="wizard">
+  <div id="frame" class="frame">
+    <button id="closeBtn" class="close-btn" title="Hide">x</button>
+    <img id="mouth" class="mouth" alt="" />
+
+    <div id="authNotice" class="auth-notice hidden">
+      LOG IN TO<br />CLAUDE TO<br />SEE USAGE
+    </div>
+
+    <div id="stats" class="stats">
+      <div class="stat-row">
+        <div class="stat-label">
+          <span>SESSION</span>
+          <span id="sessionPct">--%</span>
+        </div>
+        <div class="bar"><div id="sessionFill" class="bar-fill"></div></div>
+        <div class="stat-reset">RESETS <span id="sessionReset">--</span></div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-label">
+          <span>WEEKLY</span>
+          <span id="weeklyPct">--%</span>
+        </div>
+        <div class="bar"><div id="weeklyFill" class="bar-fill"></div></div>
+        <div class="stat-reset">RESETS <span id="weeklyReset">--</span></div>
+      </div>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>

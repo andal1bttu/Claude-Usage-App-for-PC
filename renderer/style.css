@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  font-family: 'Consolas', 'Lucida Console', monospace;
+  user-select: none;
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-app-region: drag;
+}
+
+body[data-mode="wizard"] .frame {
+  background-image: url('assets/wizard-frame.png');
+}
+
+body[data-mode="tama"] .frame {
+  background-image: url('assets/tama-frame.png');
+}
+
+.close-btn {
+  -webkit-app-region: no-drag;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 3px;
+  background: rgba(20, 20, 19, 0.55);
+  color: #faf9f5;
+  font-family: 'Consolas', monospace;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.close-btn:hover {
+  background: rgba(206, 32, 41, 0.85);
+}
+
+/* Mouth overlay sits exactly on top of the baked face icon's mouth pixels. */
+.mouth {
+  position: absolute;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+body[data-mode="wizard"] .mouth {
+  left: 40.88%;
+  top: 70.76%;
+  width: 2.81%;
+  height: 0.77%;
+}
+
+body[data-mode="tama"] .mouth {
+  left: 29.67%;
+  top: 35.67%;
+  width: 3.79%;
+  height: 1.83%;
+}
+
+.auth-notice {
+  -webkit-app-region: no-drag;
+  position: absolute;
+  color: #141413;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.auth-notice.hidden {
+  display: none;
+}
+
+.stats {
+  -webkit-app-region: no-drag;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  color: #141413;
+  overflow: hidden;
+}
+
+.stats.hidden {
+  display: none;
+}
+
+body[data-mode="wizard"] .stats,
+body[data-mode="wizard"] .auth-notice {
+  left: 42.08%;
+  top: 72.20%;
+  width: 32.26%;
+  height: 16.69%;
+  font-size: 8px;
+  padding: 3px 4px;
+  gap: 6px;
+}
+
+body[data-mode="tama"] .stats,
+body[data-mode="tama"] .auth-notice {
+  left: 20.64%;
+  top: 40.37%;
+  width: 54.34%;
+  height: 38.88%;
+  font-size: 11px;
+  padding: 8px 10px;
+  gap: 12px;
+}
+
+.stat-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: bold;
+  font-size: 1.1em;
+  letter-spacing: 0.3px;
+}
+
+.bar {
+  width: 100%;
+  height: 1em;
+  border: 1px solid #141413;
+  background: rgba(255, 255, 255, 0.35);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  background: #141413;
+  transition: width 0.4s ease;
+}
+
+.stat-reset {
+  font-size: 0.9em;
+  opacity: 0.85;
+}
