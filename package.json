@@ -1,7 +1,7 @@
 {
   "name": "claude-usage-app",
   "productName": "Claude Usage",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Desktop widget showing Claude.ai session and weekly usage limits.",
   "main": "src/main.js",
   "scripts": {

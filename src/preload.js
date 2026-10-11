@@ -5,5 +5,7 @@ contextBridge.exposeInMainWorld('claudeUsage', {
   onUsage: (cb) => ipcRenderer.on('usage:update', (_e, usage) => cb(usage)),
   onAuth: (cb) => ipcRenderer.on('auth:update', (_e, ok) => cb(ok)),
   getMode: () => ipcRenderer.invoke('mode:get'),
-  hideWindow: () => ipcRenderer.send('window:hide')
+  hideWindow: () => ipcRenderer.send('window:hide'),
+  confirmPlacement: (point) => ipcRenderer.send('place:confirm', point),
+  cancelPlacement: () => ipcRenderer.send('place:cancel')
 });

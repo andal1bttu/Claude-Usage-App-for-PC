@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* A light tint shows placement mode is on, and keeps the window from being click-through. */
+  background: rgba(20, 20, 19, 0.18);
+  font-family: 'Consolas', 'Lucida Console', monospace;
+  user-select: none;
+  cursor: crosshair;
+}
+
+.hint {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 16px;
+  border: 2px solid #141413;
+  background: #faf9f5;
+  color: #141413;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.hint span {
+  font-size: 11px;
+  opacity: 0.75;
+}
+
+/* Outline of where the widget will land. */
+.ghost {
+  position: absolute;
+  border: 2px dashed #faf9f5;
+  outline: 1px solid #141413;
+  background: rgba(250, 249, 245, 0.25);
+  pointer-events: none;
+}
+
+.ghost.hidden {
+  display: none;
+}

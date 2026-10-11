@@ -9,6 +9,7 @@ A small Windows desktop widget that shows your Claude.ai session and weekly usag
 - Mascot face expression changes with your session usage: happy under 50%, neutral at 50%, sad over 50%
 - Two display modes: full wizard portrait, or a compact Tamagotchi-style round screen
 - Lives in the system tray, floats in a corner of your screen, draggable, stays out of the way
+- Place the widget anywhere with one click, on any monitor, from the tray menu
 
 ## How it works
 
@@ -27,6 +28,19 @@ Download the latest installer from the Releases page and run it. Windows only fo
 3. The window closes itself and the widget appears in the corner of your screen with live numbers.
 4. Right-click the tray icon to switch between Wizard and Tamagotchi mode, refresh manually, re-login, or quit.
 5. Click the small `x` on the widget to hide it. Reopen from the tray icon.
+
+## Place the widget where you want it
+
+You can drag the widget, or you can drop it on an exact spot.
+
+1. Right-click the tray icon. If you do not see it, click the caret (`^`) on the taskbar first.
+2. Choose **Place Widget Here...**
+3. The screen dims a little and the cursor turns into a crosshair. A dashed outline follows the cursor and shows where the widget will land.
+4. Click. The widget moves there, centered on the click.
+
+Press `Esc` or right-click to cancel. The widget stays where it was.
+
+The outline stops at the screen edge and the taskbar, so the widget always lands fully on screen. This works on every connected monitor. The app remembers the new spot the next time it starts.
 
 ## Build from source
 

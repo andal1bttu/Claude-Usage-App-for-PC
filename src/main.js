@@ -2,6 +2,7 @@ const { app, BrowserWindow, Tray, Menu, ipcMain, screen } = require('electron');
 const path = require('path');
 const { UsageService } = require('./usage');
 const settings = require('./settings');
+const placement = require('./placement');
 
 const SIZES = {
   wizard: { width: 320, height: 626 },
@@ -60,6 +61,7 @@ function createMainWindow() {
 
 function setMode(mode) {
   if (mode === currentMode) return;
+  placement.cancel();
   currentMode = mode;
   settings.save({ mode });
   if (mainWindow) {
@@ -92,10 +94,21 @@ function toggleWindow() {
   else mainWindow.show();
 }
 
+function placeWidget() {
+  if (!mainWindow) return;
+  placement.start(SIZES[currentMode], (bounds) => {
+    if (!bounds || !mainWindow) return;
+    mainWindow.setBounds(bounds);
+    settings.save({ windowX: bounds.x, windowY: bounds.y });
+    mainWindow.show();
+  });
+}
+
 function buildTrayMenu() {
   if (!tray) return;
   const template = [
     { label: 'Show / Hide', click: toggleWindow },
+    { label: 'Place Widget Here...', click: placeWidget },
     { type: 'separator' },
     {
       label: 'Wizard mode',
@@ -164,6 +177,7 @@ app.on('window-all-closed', (e) => {
 });
 
 app.on('before-quit', () => {
+  placement.cancel();
   if (usageService) usageService.stop();
 });
 
